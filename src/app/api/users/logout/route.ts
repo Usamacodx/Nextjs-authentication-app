@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import toast from "react-hot-toast";
+
 
 
 //create a function to remove cookie
@@ -24,9 +24,9 @@ export async function GET(){
         return response;
 
         
-    } catch (error:any) {
-        console.error(error.message);
-        toast.error(error.message);
+    } catch (error) {
+        console.error(error);
+       
         
         
     }
