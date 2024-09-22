@@ -1,5 +1,8 @@
+interface Params {
+  id: string;
+}
 
-export default function userProfile({ params }: any) {
+export default function userProfile({ params }: {params:Params}) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 py-6">
       {/* Profile Container */}

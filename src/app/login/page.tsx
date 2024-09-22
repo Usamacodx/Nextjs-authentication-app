@@ -92,13 +92,15 @@ return (
 
       {/* Signup Link */}
       <div className="text-center">
-        <p className="text-white">
-          Don't have an account?{" &lsquo;"}
-          <a href="/signup" className="text-blue-400 hover:text-blue-500">
-            Sign up
-          </a>
-        </p>
-      </div>
+  <p className="text-white">
+    Don&apos;t have an account?{" "}
+    <a href="/signup" className="text-blue-400 hover:text-blue-500">
+      Sign up
+    </a>
+  </p>
+</div>
+
+     
     </div>
   </div>
 )
