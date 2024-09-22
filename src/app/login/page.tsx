@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Link from "next/link";
+
 import  { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+
 
 
 
@@ -23,10 +23,10 @@ const onLogin=async()=>{
     router.push("/profile")
 
     
-  } catch (error:any) 
+  } catch (error) 
   {
-    console.log("login failed",error.message);
-    toast.error(error.message);
+    console.log("login failed",error);
+ 
     
   }
 
@@ -41,7 +41,7 @@ else
   setButtonDisabled(true)
 }
 
-},[user]);
+},[user,buttonDisabled]);
 return (
   <div className="flex justify-center items-center h-screen bg-gray-900">
     {/* Login Form Container */}
@@ -93,7 +93,7 @@ return (
       {/* Signup Link */}
       <div className="text-center">
         <p className="text-white">
-          Don't have an account?{" "}
+          Don't have an account?{" &lsquo;"}
           <a href="/signup" className="text-blue-400 hover:text-blue-500">
             Sign up
           </a>
