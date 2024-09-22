@@ -1,5 +1,8 @@
 import { NextRequest } from "next/server";
 import jwt from  'jsonwebtoken';
+interface DecodedToken {
+    id: string; 
+  }
 
 export const getDataFromToken=(request: NextRequest)=>{
     try {

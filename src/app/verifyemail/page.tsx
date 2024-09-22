@@ -4,36 +4,31 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-
 export default function VerifyEmailPage() {
+  const [token, setToken] = useState("");
+  const [verified, setVerified] = useState(false);
+  const [error, setError] = useState(false);
 
-    const [token, setToken] = useState("");
-    const [verified, setVerified] = useState(false);
-    const [error, setError] = useState(false);
+  useEffect(() => {
+    const urlToken = window.location.search.split("=")[1];
+    setToken(urlToken || "");
+  }, []);
 
-    const verifyUserEmail = async () => {
+  useEffect(() => {
+    if (token.length > 0) {
+      const verifyUserEmail = async () => {
         try {
-            await axios.post('/api/users/verifyemail', {token})
-            setVerified(true);
+          await axios.post("/api/users/verifyemail", { token });
+          setVerified(true);
         } catch (error) {
-            setError(true);
-            console.log(error);
-            
+          setError(true);
+          console.log(error);
         }
+      };
 
+      verifyUserEmail();
     }
-
-    useEffect(() => {
-        const urlToken = window.location.search.split("=")[1];
-        setToken(urlToken || "");
-    },[]);
-
-
-    useEffect(() => {
-         if(token.length > 0) {
-             verifyUserEmail();
-        }
-     }, [token,verifyUserEmail]);
+  }, [token]);
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-6 bg-gray-100">
